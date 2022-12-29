@@ -3,6 +3,7 @@ import './App.css'
 import searchIcon from "./search.svg"
 import Movie from "./MovieCard"
 
+
 const API_URL = "http://www.omdbapi.com?apikey=f5506cbf"
 
 const App = () =>{
@@ -14,15 +15,18 @@ const App = () =>{
         const response = await fetch(`${API_URL}&s=${title}`)
         const data = await response.json()
         setMovies(data.Search);
-
-        // console.log(data);
+        console.log(response)
+        console.log(data)
     }
 
-    useEffect(() => {
-        searchMovies('superman')
-    }, [])
+    // useEffect(() => {
+    //     searchMovies('superman')
+    // }, [])
 
-    console.log(movies);
+    window.onload = () => {
+        searchMovies('superman')
+    }
+
 
     return(
         <div className="app">
@@ -71,4 +75,4 @@ const App = () =>{
     )
 }
 
-export default App  
+export default App 
